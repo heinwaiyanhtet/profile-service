@@ -3,12 +3,13 @@ const app = express();
 
 const cors = app.use("cors");
 const corsOptions = require('./config/corsOptions');
+
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }))
+
+
 app.use(cors(corsOptions));
-
-
-
-
-
 
 
 
