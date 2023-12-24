@@ -1,10 +1,10 @@
 const mysql = require("mysql");
 
-const connection = mysql.createConnection({
+const pool = mysql.createConnection({
   host: "localhost",
   user: "heinwaiyanhtet",
   password: "heinwai@2004",
-  database: "deodar_park",
+  database: "user-service",
 });
 
 connection.connect((err) => {
@@ -12,4 +12,24 @@ connection.connect((err) => {
   console.log("Successfully connected to the database");
 });
 
-module.exports = connection;
+const executeQuery = (sql,values) => {
+
+    return new Promise((resolve,reject) => {
+
+        pool.query(sql,values,(error,results,fields) => {
+
+              if (error) 
+              {
+                reject(error);
+              } 
+              else 
+              {
+                resolve(results);
+              }
+         })
+         
+      })
+}
+
+module.exports = executeQuery;
+

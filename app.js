@@ -9,10 +9,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
 
 
-var passport = require('passport');
-const session = require('express-session');
-const LocalStrategy = require('passport-local').Strategy;
-
 app.use(session({
   secret: "secret",
   resave: false ,
@@ -22,13 +18,6 @@ app.use(session({
 app.use(passport.initialize()) 
 
 app.use(passport.session()) 
-
-
-
-
-
-
-
 
 
 
