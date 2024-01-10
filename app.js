@@ -5,10 +5,6 @@ const app = express();
 const corsOptions = require('./config/corsOptions');
 app.use(cors(corsOptions));
 
-
-
-
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -21,7 +17,6 @@ app.use(express.urlencoded({ extended: false }));
 // app.use(passport.initialize()) 
 
 // app.use(passport.session()) 
-
 
 app.use((req, res) => 
 {
