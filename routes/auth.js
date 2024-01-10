@@ -1,3 +1,8 @@
-var router = express.Router();
+const express = require('express');
+const jwt = require('jsonwebtoken');
+const bcrypt = express('bcryptjs');
+const router = express.Router();
 
-module.exports = router;
+
+const users = [];
+module.exports = {router , users};
