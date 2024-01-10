@@ -26,8 +26,8 @@ const executeQuery = (sql,values) => {
               {
                 resolve(results);
               }
-         })
-         
+          })
+
       })
 }
 

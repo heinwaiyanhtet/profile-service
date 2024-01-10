@@ -5,24 +5,26 @@ const app = express();
 const corsOptions = require('./config/corsOptions');
 app.use(cors(corsOptions));
 
+
+
+
+
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: false }));
+
+// app.use(session({
+//   secret: "secret",
+//   resave: false ,
+//   saveUninitialized: true ,
+// }))
+
+// app.use(passport.initialize()) 
+
+// app.use(passport.session()) 
 
 
-app.use(session({
-  secret: "secret",
-  resave: false ,
-  saveUninitialized: true ,
-}))
-
-app.use(passport.initialize()) 
-
-app.use(passport.session()) 
-
-
-
-
-app.use((req, res) => {
+app.use((req, res) => 
+{
     res.status(404).json({ message: 'Not Found' });
 });
 
