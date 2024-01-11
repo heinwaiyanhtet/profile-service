@@ -3,9 +3,14 @@ const cors = require('cors');
 const app = express();
 
 const corsOptions = require('./config/corsOptions');
+const { authRouter } = require("./routes/auth");
+
 app.use(cors(corsOptions));
 
 app.use(express.json());
+
+app.use('/auth',authRouter)
+
 app.use(express.urlencoded({ extended: false }));
 
 // app.use(session({
