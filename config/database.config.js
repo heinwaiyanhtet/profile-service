@@ -7,10 +7,12 @@ const pool = mysql.createConnection({
   database: "user-service",
 });
 
-connection.connect((err) => {
+connection.connect((err) =>
+{
   if (err) throw err;
   console.log("Successfully connected to the database");
 });
+
 
 const executeQuery = (sql,values) => {
 
