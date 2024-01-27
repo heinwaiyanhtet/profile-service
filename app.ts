@@ -11,7 +11,6 @@ app.use(express.json());
 
 app.use('/auth',authRouter);
 
-
 app.use(express.urlencoded({ extended: false }));
 
 // app.use(session({

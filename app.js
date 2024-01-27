@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var cors = require('cors');
+
 var app = (0, express_1.default)();
 var corsOptions = require('./config/corsOptions');
 var authRouter = require("./routes/auth").authRouter;
@@ -12,6 +13,7 @@ app.use(cors(corsOptions));
 app.use(express_1.default.json());
 app.use('/auth', authRouter);
 app.use(express_1.default.urlencoded({ extended: false }));
+
 // app.use(session({
 //   secret: "secret",
 //   resave: false ,

@@ -1,4 +1,5 @@
 "use strict";
+
 var express = require('express');
 var authRouter = express.Router();
 var controller = require('../controllers/authController');

@@ -1,5 +1,4 @@
 import express from 'express';
-// rest of the code...
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
@@ -8,7 +7,6 @@ const users: any[] = [];
 exports.postRegister = async (req: { body: { email: any; password: any; }; },res: any) => {
     try 
     {
-
         const {email,password} = req.body;
         const newUser = await bcrypt.hash(password,10);
         users.push(newUser);
@@ -17,6 +15,7 @@ exports.postRegister = async (req: { body: { email: any; password: any; }; },res
         console.log(e);
     }
 }
+
 
 exports.postLogin = async (req: { body: { email: any; password: any; }; },res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { message: string; }): any; new(): any; }; }; json: (arg0: { message: string; token: any; }) => void; }) => {
     try 
@@ -28,7 +27,7 @@ exports.postLogin = async (req: { body: { email: any; password: any; }; },res: {
         }
 
         let userPass = user.password;
-        
+
         const passwordMatch = await bcrypt.compare({password,userPass})
             
         if(!passwordMatch){
@@ -42,6 +41,7 @@ exports.postLogin = async (req: { body: { email: any; password: any; }; },res: {
                 expiresIn:"1h",
             }
         )
+    
         res.json({message:"Login Successfully",token});
 
 
@@ -49,3 +49,4 @@ exports.postLogin = async (req: { body: { email: any; password: any; }; },res: {
         console.log(e.message)
     }
 }
+

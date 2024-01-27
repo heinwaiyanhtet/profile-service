@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: serviceUser@123
+      MYSQL_DATABASE: user-service
+      MYSQL_USER: heinwai
+      MYSQL_PASSWORD: user@123
+    ports:
+      - "3306:3306"
