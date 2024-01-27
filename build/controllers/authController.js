@@ -36,7 +36,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// rest of the code...
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
 var users = [];
