@@ -4,23 +4,37 @@ const bcrypt = require('bcryptjs');
 
 const users: any[] = [];
 
-exports.postRegister = async (req: { body: { email: any; password: any; }; },res: any) => {
+exports.postRegister = async (req: { body: { email: string; password: string; }; },res: any) => 
+{
     try 
     {
         const {email,password} = req.body;
-        const newUser = await bcrypt.hash(password,10);
-        users.push(newUser);
 
-    } catch (e) {
+        const bcryptPassword = await bcrypt.hash(password,10);
+
+        users.push({
+            email,
+            bcryptPassword
+        });
+
+        res.sendStatus(201);
+
+    } 
+    catch (e) 
+    {
         console.log(e);
     }
 }
 
 
-exports.postLogin = async (req: { body: { email: any; password: any; }; },res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { message: string; }): any; new(): any; }; }; json: (arg0: { message: string; token: any; }) => void; }) => {
+exports.postLogin = 
+        async (req: { body: { email: any; password: any; }; }
+            ,res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { message: string; }): any; new(): any; }; };
+             json: (arg0: { message: string; token: any; }) => void; }) => {
     try 
     {
         const {email,password} = req.body;
+        
         const user = users.find((u) => u.email == email);
         if(!user){
             return res.status(400).json({message : "Invalid username or password"});
