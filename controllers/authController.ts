@@ -1,4 +1,3 @@
-import express from 'express';
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
@@ -9,9 +8,8 @@ exports.postRegister = async (req: { body: { email: string; password: string; };
     try 
     {
         const {email,password} = req.body;
-
         const bcryptPassword = await bcrypt.hash(password,10);
-
+        
         users.push({
             email,
             bcryptPassword

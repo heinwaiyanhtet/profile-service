@@ -1,7 +1,7 @@
 var passport = require('passport');
 const session = require('express-session');
 const LocalStrategy = require('passport-local').Strategy;3
-const User = require('../models/user');
+// const User = require('../models/user');
 
 // passport.use(new LocalStrategy(
     

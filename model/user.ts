@@ -1,11 +1,9 @@
-// const mysql = require('../config/database.config.js');
+class User {
 
-// class User {
-
-//     constructor(user) {
+    constructor() {
         
-//     }
+    }
     
-// }
+}
 
-// module.exports = User;
+module.exports = User;
