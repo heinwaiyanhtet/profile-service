@@ -1,0 +1,5 @@
+CREATE DATABASE IF NOT EXISTS shadowDb;
+USE shadowDb;
+
+GRANT ALL PRIVILEGES ON shadowdb.* TO 'heinwai'@'%';
+FLUSH PRIVILEGES;
