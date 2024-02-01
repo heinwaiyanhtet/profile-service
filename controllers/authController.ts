@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
+
 const users: any[] = [];
 
 exports.postRegister = async (req: { body: { email: string; password: string; }; },res: any) => 
