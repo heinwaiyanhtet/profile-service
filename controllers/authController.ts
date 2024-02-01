@@ -17,7 +17,7 @@ exports.postRegister = async (req: { body: { email: string; password: string; };
         });
 
         res.sendStatus(201);
-
+        
     } 
     catch (e) 
     {

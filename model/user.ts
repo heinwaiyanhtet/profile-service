@@ -4,7 +4,7 @@ class User {
 
     constructor() {}
 
-    async createUser(email : string,password : string){
+    async createUser(email : string, password : string){
 
         try 
         {
@@ -15,7 +15,6 @@ class User {
         catch (error) {
             
         }
-
 
     }
     
