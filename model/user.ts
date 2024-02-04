@@ -1,19 +1,32 @@
-const prisma = require('../config/prisma');
+// const prisma = require('../config/prisma');
+import { PrismaClient } from "@prisma/client";
+const prisma = new PrismaClient();
 
 class User {
 
-    constructor() {}
+    constructor() {
+        console.log("hello user model");
+    }
 
-    async createUser(email : string, password : string){
+    async createUser(name: string, email : string, password : string){
 
         try 
         {
-            const user = await prisma.user
-            
-            
+            const user =  await prisma.user.create({
+                data: 
+                {
+                    name,
+                    email,
+                    password
+                },
+            });
+            return user;
+
         } 
-        catch (error) {
-            
+        catch (error) 
+        {
+            console.log("errro in creating user",error);
+            throw error; 
         }
 
     }
@@ -22,7 +35,7 @@ class User {
     
 }
 
-module.exports = User;
+export default User;
 
 // model Profile {
 //     id     Int     @id @default(autoincrement())

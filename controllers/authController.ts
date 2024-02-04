@@ -1,20 +1,42 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-
+// const user = require('../model/user');
+import { PrismaClient } from "@prisma/client";
+import { error } from "console";
 
 const users: any[] = [];
 
-exports.postRegister = async (req: { body: { email: string; password: string; }; },res: any) => 
+exports.postRegister = 
+    async (
+            req:{ 
+                    body: { name: string; email: string; password: string; }; 
+                }
+                ,res
+                : any
+        ) => 
 {
+    
     try 
     {
-        const {email,password} = req.body;
-        const bcryptPassword = await bcrypt.hash(password,10);
-        
-        users.push({
-            email,
-            bcryptPassword
-        });
+
+        const {name,email,password} = req.body;
+
+        // const prisma = new PrismaClient();
+
+        // const bcryptPassword = await bcrypt.hash(password,10);
+
+        // await prisma.user.create({
+        //         data: 
+        //         {
+        //             name,
+        //             email,
+        //             password : bcryptPassword
+        //         },
+        //     });
+
+
+        // 
+        // await user.createUser(name,email,bcryptPassword);
 
         res.sendStatus(201);
         
@@ -22,7 +44,9 @@ exports.postRegister = async (req: { body: { email: string; password: string; };
     catch (e) 
     {
         console.log(e);
+        throw error;
     }
+
 }
 
 

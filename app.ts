@@ -11,15 +11,10 @@ app.use('/auth',authRouter);
 
 app.use(express.urlencoded({ extended: false }));
 
-// app.use(session({
-//   secret: "secret",
-//   resave: false ,
-//   saveUninitialized: true ,
-// }))
 
-// app.use(passport.initialize()) 
-
-// app.use(passport.session()) 
+app.get("/a",(req,res) => {
+    res.status(200).json({ message: 'hello' });
+})
 
 
 app.use((req, res) => 
