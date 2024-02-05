@@ -1,26 +1,23 @@
-import express from 'express';
+import  express  from 'express';
 const cors = require('cors');
 const app = express();
-
 const corsOptions = require('./config/corsOptions');
 const { authRouter } = require("./routes/auth");
 
+
+
 app.use(cors(corsOptions));
 app.use(express.json());
-app.use('/auth',authRouter);
-
 app.use(express.urlencoded({ extended: false }));
 
 
-app.get("/a",(req,res) => {
-    res.status(200).json({ message: 'hello' });
-})
-
+app.use('/auth',authRouter);
 
 app.use((req, res) => 
 {
     res.status(404).json({ message: 'Not Found' });
 });
+
 
 
 const PORT = process.env.PORT || 4000;
