@@ -1,18 +1,21 @@
-// const { PrismaClient } = require("@prisma/client");
-// const prisma = new PrismaClient();
-
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient();
 
 exports.postRegister = async (
-    req:{ 
-        body: { name: string; email: string; password: string; }; 
-    }
-    ,res
-    : any
+        req:{ 
+            body: { name: string; email: string; password: string; }; 
+        }
+        ,res
+        : any
 ) => {
-    try {
+    try 
+    {
         
+
+
+
     } catch (error) {
-        
+        console.log(error);
     }
 }
 
