@@ -5,11 +5,16 @@ generator client {
   provider = "prisma-client-js"
 }
 
+
+
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL")
-  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+  url      = "prisma://heinwai:user@123@127.0.0.1:3307/user-service"
+  shadowDatabaseUrl = "prisma://heinwai:user@123@127.0.0.1:3307/shadowDb"
 }
+
+
+
 
 model User {
   id      Int      @id @default(autoincrement())
