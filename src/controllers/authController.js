@@ -2,7 +2,6 @@ import { PrismaClient } from '@prisma/client/edge'
 // import { withAccelerate } from '@prisma/extension-accelerate'
 const prisma = new PrismaClient()
 // .$extends(withAccelerate())
-
 import bcrypt from "bcryptjs";
 
 export const postRegister = async (req, res) => {
@@ -33,7 +32,6 @@ export const postRegister = async (req, res) => {
             res.status(500).json({ msg: error.message });
          }
 }
-
 
 export const postLogin = async (
     req,res
