@@ -1,8 +1,9 @@
 import  express  from 'express';
 import cors from 'cors';
-import corsSettings from '../config/corsSettings.js';
+import corsSettings from './config/corsSettings';
 import  {router as authRouter}  from './routes/auth.js';
 import prisma from "./services/prisma.js";
+
 
 const app = express();
 app.use(cors(corsSettings));

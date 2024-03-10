@@ -4,7 +4,7 @@ const prisma = new PrismaClient()
 // .$extends(withAccelerate())
 import bcrypt from "bcryptjs";
 
-export const postRegister = async (req, res) => {
+export const postRegister = async (req: { body: { name: any; email: any; password: any; }; }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { id: number; name: string | null; email: string; password: string; }[]): void; new(): any; }; }; }) => {
     try
         {
 
@@ -19,22 +19,22 @@ export const postRegister = async (req, res) => {
                 },
             });
         
-            const response = await prisma.User.findMany()
+            const response = await prisma.user.findMany()
             res.status(200).json(response)
 
             // res.sendStatus(201)
             // .json(user);
 
         }  
-        catch (error) 
+        catch (error : any) 
         {
             console.error(error);
-            res.status(500).json({ msg: error.message });
+            res.status(500).json({ msg: error.message } as any);
          }
 }
 
 export const postLogin = async (
-    req,res
+    req: any,res: any
 
 ) => {
     try 
@@ -65,7 +65,7 @@ export const postLogin = async (
         // res.json({message:"Login Successfully",token});
     
 
-    } catch (e) {
+    } catch (e : any) {
         console.log(e.message)
     }
 }
