@@ -1,17 +1,19 @@
 import  express  from 'express';
 import cors from 'cors';
 import corsSettings from './config/corsSettings';
-import  {router as authRouter}  from './routes/auth.js';
+import  {router as authRouter}  from './routes/auth.route';
 import prisma from "./services/prisma.js";
 
 
 const app = express();
+
 app.use(cors(corsSettings));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 async function main() {
-    app.use('/auth',authRouter);
+    app.use('/api',authRouter);
+    
     app.use((req, res) => 
     {
         res.status(404).json({ message: 'Not Found' });
