@@ -6,13 +6,10 @@ generator client {
 }
 
 
-
 datasource db {
   provider = "mysql"
-  url      = "mysql://root:serviceUser123@127.0.0.1:3307/user-service"
-  shadowDatabaseUrl = "mysql://root:serviceUser123@127.0.0.1:3307/shadowDb"
+  url      = env("DATABASE_URL")
 }
-
 
 
 model User {
